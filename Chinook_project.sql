@@ -5,9 +5,6 @@ SELECT *
 FROM 
 	chinook.artist
 
-SELECT *
-FROM 
-	chinook.customer
 
 SELECT *
 FROM 
@@ -17,13 +14,35 @@ SELECT *
 FROM 
 	chinook.genre
 
+
+-- both have state in common
+
 SELECT *
 FROM 
 	chinook.invoice
 
 SELECT *
 FROM 
+	chinook.customer
+
+SELECT *
+FROM chinook.customer AS c
+INNER JOIN chinook.invoice as il1 ON c.CustomerId = il1.CustomerId
+INNER JOIN chinook.invoice as il2 ON c.State = il2.BillingState
+
+
+DESCRIBE chinook.customer
+
+DESCRIBE chinook.invoice
+
+
+
+
+
+SELECT *
+FROM 
 	chinook.invoiceline
+
 
 SELECT *
 FROM 
